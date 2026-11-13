@@ -1804,7 +1804,9 @@ function Website() {
 
     async function loadProducts() {
       try {
-        const response = await fetch('/api/products');
+        const response = await fetch(
+          `${import.meta.env.VITE_API_URL || ''}/api/products`
+        );
 
         if (!response.ok) {
           throw new Error(
@@ -1919,7 +1921,9 @@ function Website() {
     setNoticeError(false);
 
     try {
-      const response = await fetch('/api/enquiries', {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL || ''}/api/enquiries`,
+      {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
